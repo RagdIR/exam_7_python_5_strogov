@@ -1,0 +1,36 @@
+[
+{
+  "model": "webapp.poll",
+  "pk": 1,
+  "fields": {
+    "question": "Try to do parts",
+    "created_at": "2020-08-29T06:23:52.532Z"
+  }
+},
+{
+  "model": "webapp.choice",
+  "pk": 1,
+  "fields": {
+    "variant": "Just do it",
+    "poll": 1
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$89rIEGCuvqBb$lfU0ETOm9or63CCq/JfJNxJmpyUF3SAdWXdco7IvERY=",
+    "last_login": "2020-08-29T06:06:20.619Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-08-29T06:06:14.778Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

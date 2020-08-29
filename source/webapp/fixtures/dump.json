@@ -104,6 +104,30 @@
   }
 },
 {
+  "model": "webapp.choice",
+  "pk": 7,
+  "fields": {
+    "variant": "TEst",
+    "poll": 9
+  }
+},
+{
+  "model": "webapp.choice",
+  "pk": 8,
+  "fields": {
+    "variant": "\u0411\u0435\u0448\u0435\u043d\u0430\u044f",
+    "poll": 8
+  }
+},
+{
+  "model": "webapp.choice",
+  "pk": 9,
+  "fields": {
+    "variant": "make your dreams come true",
+    "poll": 1
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {

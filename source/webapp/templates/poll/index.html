@@ -1,5 +1,4 @@
- 
-{% extends 'base.html' %}
+ {% extends 'base.html' %}
 
 {% block title %}Главная{% endblock %}
 
@@ -9,9 +8,10 @@
         {% include 'partial/pagination.html' %}
     {% endif %}
 
-    {% for project in projects %}
-        <h3><a href="{% url "poll_view" poll.pk %}"></a></h3>
-        <p>Дата начала: {{ poll.created_at|date:"d.m.Y H:I:s" }}</p>
+    {% for poll in polls %}
+        <h3>Вопрос: <a href="{% url "poll_view" poll.pk %}">{{ poll.question }}</a></h3>
+{#        <p>Вопрос: {{ poll.question }}</p>#}
+        <p>Дата создания опроса: {{ poll.created_at|date:"d.m.Y H:m:s" }}</p>
         <p><a href="{% url 'poll_update' poll.pk %}">Изменить</a> | <a href="{% url 'poll_delete' poll.pk %}">Удалить</a></p>
         <hr>
     {% endfor %}

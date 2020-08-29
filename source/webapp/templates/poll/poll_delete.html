@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Удаление вопроса{% endblock %}
+
+{% block menu %}
+    <li><a href="{% url 'poll_delete' poll.pk %}">Отмена</a></li>
+{% endblock %}
+
+{% block content %}
+    <h1>Вы уверены, что хотите удалить проект "{{ poll.question }}"?</h1>
+    <p><b>Дата создания:</b> {{ poll.created_at }}</p>
+
+    <form action="{% url "poll_delete" poll.pk %}" method="post">
+        {% csrf_token %}
+        <p><input type="submit" value="Да"></p>
+        <p><a href="{% url 'poll_view' poll.pk %}">Отмена</a></p>
+    </form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Вариант{% endblock %}
+
+{% block menu %}
+    <li><a href="{% url 'choice_update' choice.pk %}">Изменить</a></li>
+    <li><a href="{% url 'choice_delete' choice.pk %}">Удалить</a></li>
+    <li><a href="{% url 'poll_view' choice.poll.pk %}">Вернуться к вопросу</a></li>
+{% endblock %}
+
+{% block content %}
+    <h1>{{ choice.variant }}</h1>
+{#    <p><b>Тип:</b> {% for type in choice.type.all %}#}
+{#    {{ type.title }}#}
+{#    {% endfor %}#}
+{#    </p>#}
+
+{% endblock %}

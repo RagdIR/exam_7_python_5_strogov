@@ -3,21 +3,21 @@
 {% block title %}Опрос {{ poll.question }}{% endblock %}
 
 {% block menu %}
-{#    <li><a href="{% url 'poll_update' choice.pk %}">Изменить</a></li>#}
-{#    <li><a href="{% url 'poll_delete' choice.pk %}">Удалить</a></li>#}
-{#    <li><a href="{% url 'choice_create' choice.pk %}">Добавить задачу</a></li>#}
+    <li><a href="{% url 'poll_update' poll.pk %}">Изменить</a></li>
+    <li><a href="{% url 'poll_delete' poll.pk %}">Удалить</a></li>
     <li><a href="{% url 'poll_choice_create' poll.pk %}">Добавить вариант</a></li>
 {% endblock %}
 
 {% block content %}
     <h1>{{ poll.question}}</h1>
-    <p><b>Дата создания опроса:</b> {{ poll.created_at|date:"d.m.Y H:M:S" }}</p>
-            <h3>Варианты:</h3>
-
+{#    <p><b>Дата создания опроса:</b> {{ poll.created_at|date:"d.m.Y H:m:s" }}</p>#}
+    <h3>Варианты:</h3>
         {% for choice in choices %}
-               <h4><a href="{% url "choice_view" choice.pk %}">{{ choice.variant }}</a></h4>
-                    <p><a href="{% url 'choice_update' choice.pk %}">Изменить</a> | <a href="{% url 'choice_delete' choice.pk %}">Удалить</a></p>
-                <hr>
+                        print(choice.variant)
+            <h4>{{ choice.variant }}</h4>
+
+            <p><a href="{% url 'choice_update' choice.pk %}">Изменить</a> | <a href="{% url 'choice_delete' choice.pk %}">Удалить</a></p>
+            <hr>
         {% empty %}
             <p>Нет вариантов</p>
         {% endfor %}

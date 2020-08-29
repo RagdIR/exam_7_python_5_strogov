@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Вопросы{% endblock %}</title>
+    <title>{% block title %}Опросы{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -18,8 +18,7 @@
        <div class="container">
            <ul class="menu">
                <li><a href="{% url 'index' %}">Главная</a></li>
-               <li><a href="{% url 'poll_create' %}">Добавить вопрос</a></li>
-
+               <li><a href="{% url 'poll_create' %}">Добавить опрос</a></li>
                {% block menu %}{% endblock %}
            </ul>
        </div>

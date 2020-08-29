@@ -26,23 +26,9 @@ class PollView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # print(context)
+        # context['choices'] = choices
+        print(context)
         return context
-
-    # def paginate_choice(self, poll):
-    #     choice = poll.poll.all()
-    #     if choice.count() > 0:
-    #         paginator = Paginator(choice, self.paginate_choice_by, orphans=self.paginate_choice_orphans)
-    #         page_number = self.request.GET.get('page', 1)
-    #         page = paginator.get_page(page_number)
-    #         is_paginated = paginator.num_pages > 1
-    #         return page.object_list, page, is_paginated
-    #     else:
-    #         return choice, None, False
-    #
-    # def paginate_choice(self, poll):
-    #     choice = poll.poll.all()
-    #     return choice, None, False
         
         
 class PollCreateView(CreateView):

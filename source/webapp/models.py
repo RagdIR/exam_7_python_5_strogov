@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Poll(models.Model):
-    question = models.CharField(max_length=300, null=False, blank=False, verbose_name='Вопрос')
+    question = models.TextField(max_length=300, null=False, blank=False, verbose_name='Вопрос')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Время создания вопроса")
 
     def __str__(self):
@@ -14,7 +14,7 @@ class Poll(models.Model):
 
 
 class Choice(models.Model):
-    variant = models.CharField(max_length=300, null=False, blank=False, verbose_name='Варианты ответов')
+    variant = models.TextField(max_length=300, null=False, blank=False, verbose_name='Варианты ответов')
     poll = models.ForeignKey('webapp.Poll', related_name='poll',
                                on_delete=models.CASCADE, verbose_name='Вопрос')
 
@@ -26,9 +26,9 @@ class Choice(models.Model):
         verbose_name_plural = 'Тексты вариантов'
 
 
-class Answer(models.Model):
-    poll = models.ForeignKey('webapp.Poll', related_name='poll',
-                               on_delete=models.CASCADE, verbose_name='Вопрос')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Время создания ответа")
-    choice = models.ForeignKey('webapp.Choice', related_name='choice',
-                               on_delete=models.CASCADE, verbose_name='Вариант')
+# class Answer(models.Model):
+#     poll_answer = models.ForeignKey('webapp.Poll', related_name='poll',
+#                                on_delete=models.CASCADE, verbose_name='Вопрос')
+#     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Время создания ответа")
+#     choice_answer = models.ForeignKey('webapp.Choice', related_name='choice',
+#                                on_delete=models.CASCADE, verbose_name='Вариант')

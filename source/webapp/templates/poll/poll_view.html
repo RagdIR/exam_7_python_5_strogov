@@ -10,10 +10,9 @@
 
 {% block content %}
     <h1>{{ poll.question}}</h1>
-{#    <p><b>Дата создания опроса:</b> {{ poll.created_at|date:"d.m.Y H:m:s" }}</p>#}
+{#    <p><b>Дата создания опроса:</b> {{ poll.created_at|date:"d.m.Y H:i:s" }}</p>#}
     <h3>Варианты:</h3>
         {% for choice in choices %}
-                        print(choice.variant)
             <h4>{{ choice.variant }}</h4>
 
             <p><a href="{% url 'choice_update' choice.pk %}">Изменить</a> | <a href="{% url 'choice_delete' choice.pk %}">Удалить</a></p>
@@ -21,7 +20,4 @@
         {% empty %}
             <p>Нет вариантов</p>
         {% endfor %}
-        {% if is_paginated %}
-            {% include 'partial/pagination.html' %}
-        {% endif %}
 {% endblock %}

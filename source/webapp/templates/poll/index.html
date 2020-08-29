@@ -1,0 +1,22 @@
+ 
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <h1>Вопросы</h1>
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
+    {% for project in projects %}
+        <h3><a href="{% url "poll_view" poll.pk %}"></a></h3>
+        <p>Дата начала: {{ poll.created_at|date:"d.m.Y H:I:s" }}</p>
+        <p><a href="{% url 'poll_update' poll.pk %}">Изменить</a> | <a href="{% url 'poll_delete' poll.pk %}">Удалить</a></p>
+        <hr>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+{% endblock %}

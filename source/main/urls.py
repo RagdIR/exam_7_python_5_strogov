@@ -1,7 +1,7 @@
 """main URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
+    https://docs.djangopoll.com/en/2.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,6 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from webapp.views.poll_views import IndexView, PollView, PollUpdateView, PollDeleteView, PollCreateView
+from webapp.views.choice_views import ChoiceView, ChoiceUpdateView, ChoiceDeleteView, PollChoiceCreateView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', IndexView.as_view(), name='index'),
+    path('poll/<int:pk>/', PollView.as_view(), name='poll_view'),
+    path('polls/add/', PollCreateView.as_view(), name='poll_create'),
+    path('choice/<int:pk>/', ChoiceView.as_view(), name='choice_view'),
+    path('poll/<int:pk>/choices/add/', PollChoiceCreateView.as_view(), name='poll_choice_create'),
+    # path('choices/add/', ChoiceCreateView.as_view(), name='choice_create'),
+    path('poll/<int:pk>/update/', PollUpdateView.as_view(), name='poll_update'),
+    path('poll/<int:pk>/delete/', PollDeleteView.as_view(), name='poll_delete'),
+    path('choice/<int:pk>/update/', ChoiceUpdateView.as_view(), name='choice_update'),
+    path('choice/<int:pk>/delete/', ChoiceDeleteView.as_view(), name='choice_delete'),
 ]
